@@ -8,10 +8,6 @@ import {
   deleteFavoriteProductsAsync,
 } from "../favorite/favoriteSlice";
 import { Sort } from "../../components/Sort/Sort";
-import {
-  addBasketProductsAsync,
-  deleteBasketProductsAsync,
-} from "../basket/basketSlice";
 
 export const MainPage = ({
   inputSearctHandler,
@@ -21,7 +17,6 @@ export const MainPage = ({
   sortCost,
 }) => {
   const favoriteProducts = useSelector((state) => state.favorites.favorite);
-  const basketProducts = useSelector((state) => state.basket.products);
   const { product, loadingMessage } = useSelector((state) => state.products);
 
   const dispatch = useDispatch();
@@ -41,16 +36,6 @@ export const MainPage = ({
       dispatch(deleteFavoriteProductsAsync(product.id));
     } else {
       dispatch(addFavoriteProductsAsync(product));
-    }
-  };
-
-  const addProductToBasket = (product) => {
-    if (
-      basketProducts.some((basketProduct) => basketProduct.id === product.id)
-    ) {
-      dispatch(deleteBasketProductsAsync(product.id));
-    } else {
-      dispatch(addBasketProductsAsync(product));
     }
   };
 
@@ -77,11 +62,6 @@ export const MainPage = ({
             favoriteProductsId={favoriteProducts.map(
               (favoriteProduct) => favoriteProduct.id
             )}
-            addProductToBasket={() => addProductToBasket(product)}
-            basketProductsId={basketProducts.map(
-              (basketProduct) => basketProduct.id
-            )}
-            isBasketProduct={false}
           />
         ))}
       </div>

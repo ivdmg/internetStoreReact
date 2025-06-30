@@ -3,19 +3,26 @@ import "./product.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductItem } from "./ProductItemSlice";
 import { useEffect } from "react";
+import { ToBusketButton } from "../../components/ToBusketButton/index";
+
 export const ProductPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const {image, name, rating, price} = useSelector((state) => state.product.item);
-
+  
+  const productItem = useSelector((state) => state.product.item);
+  const { image, name, rating, price } = productItem || {};
 
   useEffect(() => {
     dispatch(fetchProductItem(id));
   }, []);
 
+  if (!productItem) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="cardItem">
-      <img src={image} alt="" />
+      <img src={image} alt={name} />
 
       <div className="cardContent">
         <div>
@@ -24,21 +31,7 @@ export const ProductPage = () => {
           <b>${price}</b>
         </div>
         <div className="iconsContainer">
-          {/* {addFavoriteProduct && (
-            <div
-              className="cardFavoriteIcon"
-              onClick={() => addFavoriteProduct(product)}
-            >
-              <FavoriteIcon active={isActiveFavoriteProduct} />
-            </div>
-          )} */}
-          {/* {!isBasketProduct && (
-            <ShoppingCartOutlined
-              className="basketIcon"
-              onClick={() => addProductToBasket(product)}
-              style={{ color: isActiveBasketProduct ? "red" : "inherit" }}
-            />
-          )} */}
+          <ToBusketButton product={productItem} />
         </div>
       </div>
     </div>

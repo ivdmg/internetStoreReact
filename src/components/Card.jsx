@@ -1,23 +1,15 @@
-import { FavoriteIcon } from "./FavoriteIcon";
-import { ShoppingCartOutlined } from "@ant-design/icons";
 import "../App.css";
 import { Link } from "react-router-dom";
+import { ToBusketButton } from './ToBusketButton';
+import { ToFavoriteButton } from './ToFavoriteButton';
 
-export const Card = ({
-  product,
-  addFavoriteProduct,
-  favoriteProductsId = [],
-  addProductToBasket,
-  basketProductsId = [],
-  isBasketProduct,
-}) => {
+export const Card = ({ product }) => {
   const { id, image, name, price, rating } = product;
-  const isActiveFavoriteProduct = favoriteProductsId.includes(id);
-  const isActiveBasketProduct = basketProductsId.includes(id);
+
   return (
     <div className="cardItem">
       <Link to={`/product/${id}`}>
-        <img src={image} alt="" />
+        <img src={image} alt={name} />
       </Link>
 
       <div className="cardContent">
@@ -29,21 +21,8 @@ export const Card = ({
           </div>
         </Link>
         <div className="iconsContainer">
-          {addFavoriteProduct && (
-            <div
-              className="cardFavoriteIcon"
-              onClick={() => addFavoriteProduct(product)}
-            >
-              <FavoriteIcon active={isActiveFavoriteProduct} />
-            </div>
-          )}
-          {!isBasketProduct && (
-            <ShoppingCartOutlined
-              className="basketIcon"
-              onClick={() => addProductToBasket(product)}
-              style={{ color: isActiveBasketProduct ? "red" : "inherit" }}
-            />
-          )}
+          <ToFavoriteButton product={product} />
+          <ToBusketButton product={product} />
         </div>
       </div>
     </div>
