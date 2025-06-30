@@ -1,0 +1,11 @@
+.sort-bar{
+    margin: 30px 30px 20px 30px;
+    font-size: 20px;
+}
+span{
+    margin-right: 30px;
+    cursor: pointer;
+}
+.sortActive{
+    color: red;
+}

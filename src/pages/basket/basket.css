@@ -1,0 +1,44 @@
+.cardBusketItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px 30px;
+    padding: 20px;
+    box-shadow: 3px 3px 3px 3px rgb(133, 133, 133);
+    border-radius: 10px;
+}
+.cardBusketItemInfo{
+    display: flex;
+    align-items: center;
+}
+.cardBusketInteractions{
+    display: flex;
+    align-items: center;
+}
+.cardBusketItem img{
+    max-width: 100px;
+    height: 100px;
+}
+.cardBusketContent{
+    margin-left: 20px;
+    height: 100px;
+}
+.cardBusketItemCost{
+    display: block;
+    margin-right: 20px;
+}
+.quantityContainer{
+    margin-right: 100px;
+}
+.quantityContainer span{
+    margin: 0 20px;
+}
+.deleteIcon svg{
+    width: 25px;
+    height: 25px;
+    color: red;
+}
+.summaryCostProducts{
+    margin-left: 400px;
+}
