@@ -1,0 +1,56 @@
+@mixin displayAlign {
+  display: flex;
+  align-items: center;
+}
+.cardBusketItem {
+  @include displayAlign();
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px 30px;
+  padding: 20px;
+  box-shadow: 3px 3px 3px 3px rgb(133, 133, 133);
+  border-radius: 10px;
+  img {
+    max-width: 100px;
+    height: 100px;
+  }
+}
+.cardBusketItemInfo {
+  @include displayAlign();
+}
+.cardBusketInteractions {
+  @include displayAlign();
+}
+.cardBusketContent {
+  margin-left: 20px;
+  height: 100px;
+}
+.cardBusketItemCost {
+  display: block;
+  margin-right: 20px;
+}
+.quantityContainer {
+  margin-right: 100px;
+  span {
+    margin: 0 20px;
+  }
+}
+.deleteIcon svg {
+  width: 25px;
+  height: 25px;
+  color: red;
+}
+.summaryCostProducts {
+  margin-left: 400px;
+}
+
+.linkToMainPage {
+  position: fixed;
+  bottom: 0;
+  padding: 0 30px 30px 30px;
+  background-color: rgb(173, 173, 173);
+  border-radius: 0 10px 10px 0;
+  &:hover {
+    background-color: rgb(212, 212, 212);
+  }
+}

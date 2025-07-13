@@ -1,0 +1,30 @@
+.cardItem {
+  width: 250px;
+  padding: 20px;
+  margin: 30px;
+  box-shadow: 3px 3px 3px 3px rgb(133, 133, 133);
+  img {
+    max-width: 200px;
+    height: 200px;
+  }
+
+  b {
+    display: block;
+    margin-top: 40px;
+  }
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    margin-top: 10px;
+  }
+}
+
+.iconsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

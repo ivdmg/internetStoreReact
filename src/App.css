@@ -5,78 +5,7 @@ body{
   margin: 0;
   padding: 0;
 }
-.header{
-  height: 100px;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgb(125, 125, 255);
-}
-.headerLogo{
-  width: 100px;
-}
-.header input{
-  width: 600px;
-  height: 30px;
-}
 .cardContainer{
   display: flex;
   flex-wrap: wrap;
-}
-.cardItem{
-  width: 250px;
-  padding: 20px;
-  margin: 30px;
-  box-shadow: 3px 3px 3px 3px rgb(133, 133, 133);
-}
-.cardItem img{
-  max-width: 200px;
-  height: 200px;
-}
-.cardItem b{
-  display: block;
-  margin-top: 40px;
-}
-.cardContent{
-  display: flex;
-  justify-content: space-between;
-}
-.cardContent div{
-  margin-top: 10px;
-}
-.navbar{
-  position: absolute;
-  width: 400px;
-  height: calc(100vh - 100px);
-  background-color: rgb(212, 212, 212);
-  box-shadow: 3px 3px 3px 3px rgb(110, 110, 110);
-  opacity: .9;
-}
-.navbar div{
-  padding: 20px;
-}
-.navbar div:hover, .active{
-  background-color: rgb(137, 137, 255);
-}
-.basketIcon{
-  font-size: 40px;
-  margin-top: 20px;
-  margin-right: 0;
-}
-.iconsContainer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.linkToMainPage{
-  position: fixed;
-  bottom: 0;
-  padding: 0 30px 30px 30px;
-  background-color: rgb(173, 173, 173);
-  border-radius: 0 10px 10px 0;
-}
-.linkToMainPage:hover{
-  background-color: rgb(212, 212, 212);
-
 }

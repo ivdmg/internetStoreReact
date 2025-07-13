@@ -1,5 +1,5 @@
 import { DeleteOutlined } from "@ant-design/icons";
-import "./basket.css";
+import "./basket.scss";
 import { useDispatch } from "react-redux";
 import {
   deleteBasketProductsAsync,

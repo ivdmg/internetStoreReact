@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { Card } from "../../components/Card";
-import { Header } from "../../components/Header";
-import { Navbar } from "../../components/Navbar";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addFavoriteProductsAsync,
-  deleteFavoriteProductsAsync,
-} from "../favorite/favoriteSlice";
+import { Card } from "../../components/ProductCard/Card";
+import { Header } from "../../components/Header/Header";
+import { Navbar } from "../../components/Navbar/Navbar";
+import { useSelector } from "react-redux";
 import { Sort } from "../../components/Sort/Sort";
+import { Drawer, Pagination } from 'antd';
 
 export const MainPage = ({
   inputSearctHandler,
@@ -15,11 +12,14 @@ export const MainPage = ({
   categoryProduct,
   sortCostHandler,
   sortCost,
+  setPriceFromToFilter,
+  priceFromToFilter,
+  setPage,
+  page,
+  handleChangeFilters,
+  searchParams,
 }) => {
-  const favoriteProducts = useSelector((state) => state.favorites.favorite);
   const { product, loadingMessage } = useSelector((state) => state.products);
-
-  const dispatch = useDispatch();
 
   const [visibleNavbar, setVisibleNavbar] = useState(false);
 
@@ -27,44 +27,38 @@ export const MainPage = ({
     setVisibleNavbar(!visibleNavbar);
   };
 
-  const addFavoriteProduct = (product) => {
-    if (
-      favoriteProducts.some(
-        (favoriteProduct) => favoriteProduct.id === product.id
-      )
-    ) {
-      dispatch(deleteFavoriteProductsAsync(product.id));
-    } else {
-      dispatch(addFavoriteProductsAsync(product));
-    }
-  };
-
   return (
     <>
       <Header
         inputSearctHandler={inputSearctHandler}
         showNavbarButton={showNavbarButton}
+        handleChangeFilters={handleChangeFilters}
+        searchParams={searchParams}
       />
       {loadingMessage && <h1>Loading...</h1>}
-      {visibleNavbar && (
+      <Drawer
+        placement='left'
+        onClose={() => setVisibleNavbar(!visibleNavbar)}
+        open={visibleNavbar}>
         <Navbar
+        searchParams={searchParams}
+        handleChangeFilters={handleChangeFilters}
           changeCategoryProduct={changeCategoryProduct}
           categoryProduct={categoryProduct}
+          setPriceFromToFilter={setPriceFromToFilter}
+          priceFromToFilter={priceFromToFilter}
         />
-      )}
-      <Sort sortCostHandler={sortCostHandler} sortCost={sortCost} />
+      </Drawer>
+      <Sort sortCostHandler={sortCostHandler} sortCost={sortCost} handleChangeFilters={handleChangeFilters} searchParams={searchParams}/>
       <div className="cardContainer">
         {product.map((product) => (
           <Card
             key={product.id}
             product={product}
-            addFavoriteProduct={() => addFavoriteProduct(product)}
-            favoriteProductsId={favoriteProducts.map(
-              (favoriteProduct) => favoriteProduct.id
-            )}
           />
         ))}
       </div>
+      <Pagination current={searchParams.get('_page')} total={12} onChange={(page) => handleChangeFilters('_page', page)}/>;
     </>
   );
 };

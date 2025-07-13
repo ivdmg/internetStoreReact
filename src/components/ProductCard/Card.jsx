@@ -1,9 +1,9 @@
-import "../App.css";
+import "./card.scss";
 import { Link } from "react-router-dom";
-import { ToBusketButton } from './ToBusketButton';
-import { ToFavoriteButton } from './ToFavoriteButton';
+import { ToBusketButton } from '../ToBusketButton/index';
+import { ToFavoriteButton } from '../ToFavoriteButton/index';
 
-export const Card = ({ product }) => {
+export const Card = ({product}) => {
   const { id, image, name, price, rating } = product;
 
   return (

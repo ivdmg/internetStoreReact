@@ -1,10 +1,11 @@
 import "./sort.css"
-export const Sort = ({sortCostHandler, sortCost}) => {
+export const Sort = ({handleChangeFilters, searchParams}) => {
+    const selectedCost = searchParams.get('_order')
     return(
         <div className="sort-bar">
             <span>Сортировать по:</span>
-            <span onClick={() => sortCostHandler('asc')} className = {sortCost === 'asc' ? 'sortActive' : ''}>возрастанию</span>
-            <span onClick={() => sortCostHandler('desc')} className = {sortCost === 'desc' ? 'sortActive' : ''}>убыванию</span>
+            <span onClick={() => handleChangeFilters('_order','asc')} className = {selectedCost === 'asc' ? 'sortActive' : ''}>возрастанию</span>
+            <span onClick={() => handleChangeFilters('_order','desc')} className = {selectedCost === 'desc' ? 'sortActive' : ''}>убыванию</span>
         </div>
     )
 }

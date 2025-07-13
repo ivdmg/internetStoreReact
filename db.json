@@ -24,7 +24,7 @@
       "id": "3",
       "brand": "Samsung",
       "name": "Galaxy Z fold",
-      "price": "400",
+      "price": 400,
       "category": "phone",
       "rating": 5,
       "quantity": 1,
@@ -99,29 +99,124 @@
       "rating": 5,
       "quantity": 1,
       "image": "https://ir.ozone.ru/s3/multimedia-x/c1000/6856940373.jpg"
-    }
-  ],
-  "favorites": [],
-  "basket": [
-    {
-      "id": "10",
-      "brand": "Ardor",
-      "name": "Ardor gaming 27",
-      "price": 1500,
-      "category": "monitor",
-      "rating": 5,
-      "quantity": 1,
-      "image": "https://ir.ozone.ru/s3/multimedia-x/c1000/6856940373.jpg"
     },
     {
-      "id": "9",
-      "brand": "Samsung",
-      "name": "Samsung s27c",
-      "price": 900,
+      "id": "11",
+      "brand": "Lenovo",
+      "name": "Lenovo Yoga",
+      "price": 999,
+      "category": "laptop",
+      "rating": 5,
+      "quantity": 1,
+      "image": "https://static.onlinetrade.ru/img/items/m/noutbuk_lenovo_yoga_7_2_in_1_14iml9_14_2.8k_oled_touch_120hz_400nits_glossy_ultra_5_125h_1.2ghz_16gb_lpddr5x_ssd_1tb_arc_graphics_cr_microsd_win11_storm_grey_83dj0095ru_13.jpg"
+    },
+    {
+      "id": "12",
+      "brand": "Dell",
+      "name": "Dell Alienware",
+      "price": 3000,
       "category": "monitor",
       "rating": 5,
       "quantity": 1,
-      "image": "https://cdn.citilink.ru/OqauCcP5C3TcunMohYEIiNbi_wv0Jv8QkdP9O097ydM/resizing_type:fit/gravity:sm/width:400/height:400/plain/product-images/4f4b5b07-ab88-44bd-8a74-df178fde8618.jpg"
+      "image": "https://compru.cdn.webasyst.cloud/wa-data/public/shop/products/10/05/510/images/2112/2112.400.JPG"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "11",
+      "brand": "Lenovo",
+      "name": "Lenovo Yoga",
+      "price": 999,
+      "category": "laptop",
+      "rating": 5,
+      "quantity": 1,
+      "image": "https://static.onlinetrade.ru/img/items/m/noutbuk_lenovo_yoga_7_2_in_1_14iml9_14_2.8k_oled_touch_120hz_400nits_glossy_ultra_5_125h_1.2ghz_16gb_lpddr5x_ssd_1tb_arc_graphics_cr_microsd_win11_storm_grey_83dj0095ru_13.jpg"
+    },
+    {
+      "id": "3",
+      "brand": "Samsung",
+      "name": "Galaxy Z fold",
+      "price": 400,
+      "category": "phone",
+      "rating": 5,
+      "quantity": 1,
+      "image": "https://kazandigital.ru/uploaded/images/shop/goods/2758294-1.jpg"
+    }
+  ],
+  "basket": [
+    {
+      "id": "2",
+      "brand": "Apple",
+      "name": "iphone 15 pro",
+      "price": 400,
+      "category": "phone",
+      "rating": 5,
+      "quantity": 2,
+      "image": "https://белоеяблоко.рф/upload/iblock/73c/hd5zk1a8d0i6b0syiot1a78eqxo8mj6z.png"
+    },
+    {
+      "id": "1",
+      "brand": "Samsung",
+      "name": "samsung s20",
+      "price": 300,
+      "category": "phone",
+      "rating": 5,
+      "quantity": 1,
+      "image": "https://ir.ozone.ru/s3/multimedia-s/c1000/6383506840.jpg"
+    },
+    {
+      "id": "3",
+      "brand": "Samsung",
+      "name": "Galaxy Z fold",
+      "price": "400",
+      "category": "phone",
+      "rating": 5,
+      "quantity": 1,
+      "image": "https://kazandigital.ru/uploaded/images/shop/goods/2758294-1.jpg"
+    }
+  ],
+  "comments": [
+    {
+      "userName": "ivan",
+      "text": "ivan",
+      "productId": "3",
+      "date": "11.07.2025, 23:31:54",
+      "id": 1
+    },
+    {
+      "userName": "iphone",
+      "text": "1",
+      "productId": "2",
+      "date": "11.07.2025, 23:34:25",
+      "id": 2
+    },
+    {
+      "userName": "vasya",
+      "text": "shdnjkfhsjkdhfjksdhfjkshfjkhsjkhfsdfs",
+      "productId": "2",
+      "date": "11.07.2025, 23:40:45",
+      "id": 3
+    },
+    {
+      "userName": "anton",
+      "text": "1111111111111111111111111111111111111111",
+      "productId": "2",
+      "date": "11.07.2025, 23:40:52",
+      "id": 4
+    },
+    {
+      "userName": "yohan",
+      "text": "2222222222222",
+      "productId": "3",
+      "date": "11.07.2025, 23:42:53",
+      "id": 5
+    },
+    {
+      "userName": "user kakoy-to",
+      "text": "texttexttexttexttexttexttexttexttext",
+      "productId": "2",
+      "date": "11.07.2025, 23:45:13",
+      "id": 6
     }
   ]
 }

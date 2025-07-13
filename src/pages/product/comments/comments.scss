@@ -1,0 +1,17 @@
+.commentsContainet{
+    margin-bottom: 300px;
+}
+
+.commentItem{
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 3px 3px 3px 3px rgb(133, 133, 133);
+    border-radius: 10px;
+    span{
+        display: inline-block;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+}

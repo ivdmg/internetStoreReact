@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { FavoriteIcon } from "./FavoriteIcon";
+import { FavoriteIcon } from "../FavoriteIcon/FavoriteIcon";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import '../App.css'
+import './header.scss'
 
-export const Header = ({ inputSearctHandler, showNavbarButton }) => {
+export const Header = ({ showNavbarButton, handleChangeFilters, searchParams }) => {
   return (
     <div className="header">
       <div>
@@ -44,7 +44,7 @@ export const Header = ({ inputSearctHandler, showNavbarButton }) => {
           </g>
         </svg>
       </div>
-      <input type="text" onChange={(e) => inputSearctHandler(e.target.value)} />
+      <input type="text" onChange={(e) => handleChangeFilters('q', e.target.value)} value={searchParams.get('q') || ''} />
       <Link to="/basket">
         <ShoppingCartOutlined className="basketIcon" style={{margin: 0}}/>
       </Link>

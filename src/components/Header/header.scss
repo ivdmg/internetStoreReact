@@ -1,0 +1,21 @@
+.header {
+  height: 100px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(125, 125, 255);
+
+  input {
+    width: 600px;
+    height: 30px;
+  }
+}
+.headerLogo {
+  width: 100px;
+}
+.basketIcon{
+  font-size: 40px;
+  margin-top: 20px;
+  margin-right: 0;
+}

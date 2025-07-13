@@ -1,4 +1,4 @@
-import { FavoriteIcon } from "../FavoriteIcon";
+import { FavoriteIcon } from "../FavoriteIcon/FavoriteIcon";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addFavoriteProductsAsync,

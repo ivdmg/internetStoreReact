@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useSearchParams } from "react-router";
 import { MainPage } from "./pages/main/MainPage";
 import { FavoritePage } from "./pages/favorite/FavoritePage";
 import { useDispatch } from "react-redux";
@@ -25,39 +26,66 @@ function App() {
   // ]
 
   const dispatch = useDispatch();
+  
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [inputSearchName, setInputSearchName] = useState("");
-  const [categoryProduct, setCategoryProduct] = useState("");
-  const [sortCost, setSortCost] = useState("")
+  const copyParams = new URLSearchParams(searchParams);  
+  const handleChangeFilters = (key, value) => {
+    if(copyParams.get(key) === value || !value){
+      copyParams.delete(key)
+      if(key === '_order'){
+        copyParams.delete('_sort')
+      }
+    }else if(key === '_order'){
+      copyParams.set('_sort', 'price')
+      copyParams.set('_order', value)
+    }else{
+      copyParams.set(key, value)
+    }
+    if(key !== '_page'){
+      copyParams.set('_page', 1)
+    }
+    setSearchParams(copyParams)
+  }
 
   useEffect(() => {
-    dispatch(fetchProducts({ inputSearchName, categoryProduct, sortCost }));
-  }, [inputSearchName, categoryProduct, sortCost]);
+    if(searchParams){
+      dispatch(fetchProducts(searchParams.toString()));
+    }
+  }, [searchParams]);
+  
+  // useEffect(() => {
+  //   setPage(1);
+  // }, [inputSearchName, categoryProduct, sortCost, 'price'FromToFilter]);
 
   useEffect(() => {
+    copyParams.set('_page', 1)
+    setSearchParams(copyParams)
     dispatch(fetchFavoritesProducts());
     dispatch(fetchBasketProducts());
   }, []);
 
-  const inputSearctHandler = (event) => {
-    setInputSearchName(event);
-  };
 
-  const changeCategoryProduct = (category) => {
-    if (categoryProduct === category) {
-      setCategoryProduct("");
-      return;
-    }
-    setCategoryProduct(category);
-  };
 
-  const sortCostHandler = (order) => {
-    if(sortCost === order){
-      setSortCost("")
-      return
-    }
-    setSortCost(order);
-  }
+  // const inputSearctHandler = (event) => {
+  //   setInputSearchName(event);
+  // };
+
+  // const changeCategoryProduct = (category) => {
+  //   if (categoryProduct === category) {
+  //     setCategoryProduct("");
+  //     return;
+  //   }
+  //   setCategoryProduct(category);
+  // };
+
+  // const sortCostHandler = (order) => {
+  //   if(sortCost === order){
+  //     setSortCost("")
+  //     return
+  //   }
+  //   setSortCost(order);
+  // }
 
 
   return (
@@ -68,11 +96,8 @@ function App() {
           element={
             <>
               <MainPage
-                inputSearctHandler={inputSearctHandler}
-                changeCategoryProduct={changeCategoryProduct}
-                categoryProduct={categoryProduct}
-                sortCostHandler={sortCostHandler}
-                sortCost={sortCost}
+                handleChangeFilters={handleChangeFilters}
+                searchParams={searchParams}
               />
             </>
           }
