@@ -43,14 +43,8 @@
 .summaryCostProducts {
   margin-left: 400px;
 }
-
-.linkToMainPage {
-  position: fixed;
-  bottom: 0;
-  padding: 0 30px 30px 30px;
-  background-color: rgb(173, 173, 173);
-  border-radius: 0 10px 10px 0;
-  &:hover {
-    background-color: rgb(212, 212, 212);
-  }
+.cardContainerBasket{
+  display: flex;
+  flex-direction: column;
+  max-width: 90%
 }
